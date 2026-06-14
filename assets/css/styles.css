@@ -615,6 +615,7 @@ h1.hero-title .gold { color:var(--gold); }
 
 @media(max-width:1000px){
     /* Index */
+    .hero-blob-col { display: none; }
     .hero { grid-template-columns:1fr; text-align:center; padding:120px 32px 80px; gap:48px; max-width:100%; }
     .hero-blob-col { order: -1; }
     .hero-content { align-items:center; }
