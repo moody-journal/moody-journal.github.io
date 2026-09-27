@@ -4,6 +4,7 @@
  * Depends on: <canvas id="moodCanvas"> in the DOM.
  */
 (function () {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const canvas  = document.getElementById('moodCanvas');
     const labelEl = document.getElementById('moodLabel');
     const dotEl   = document.getElementById('moodDot');
@@ -75,7 +76,7 @@
         const sz=Math.min(window.innerWidth*0.9,700), dpr=window.devicePixelRatio||1;
         canvas.width=sz*dpr; canvas.height=sz*dpr;
     }
-    resize(); window.addEventListener('resize',resize);
+    resize(); window.addEventListener('resize', () => { resize(); if (reduceMotion.matches) requestAnimationFrame(draw); });
 
     let t=0, targetT=0, moodIdx=0, holdTimer=0, time=0;
     const pDur=1.6, pInt=1.0; let rings=[{bt:0}];
@@ -122,7 +123,7 @@
         ctx.beginPath(); ctx.arc(cx,cy,iR,0,Math.PI*2); ctx.fillStyle=ig; ctx.fill();
         ctx.beginPath(); ctx.arc(cx,cy,4*dpr,0,Math.PI*2);
         ctx.fillStyle='rgba(255,255,255,0.6)'; ctx.fill();
-        requestAnimationFrame(draw);
+        if (!reduceMotion.matches) requestAnimationFrame(draw);
     }
     requestAnimationFrame(draw);
 })();

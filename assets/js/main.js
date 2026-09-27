@@ -9,6 +9,7 @@
 // ── Feature rows: fade-in on scroll ──────────────────────────────────────────
 (function() {
     const rows = document.querySelectorAll('.feature-row');
+    if (!('IntersectionObserver' in window)) { rows.forEach(r => r.classList.add('visible')); return; }
     const obs = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
     }, { threshold: 0.15 });
@@ -18,6 +19,7 @@
 // ── Autoplay videos when they enter the viewport ──────────────────────────
 (function() {
     const videos = document.querySelectorAll('video.autoplay-video');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
     const obs = new IntersectionObserver((entries) => {
         entries.forEach(e => {
             const vid = e.target;

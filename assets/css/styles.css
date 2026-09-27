@@ -382,7 +382,6 @@ h1.hero-title .gold { color:var(--gold); }
     overflow: hidden;
     display: flex; flex-direction: column; align-items: center;
     padding: 0 0 20px;
-    cursor: pointer;
     transition:
         transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
         border-color 0.3s,
@@ -675,3 +674,33 @@ h1.hero-title .gold { color:var(--gold); }
     .policy-summary{flex-direction:column;gap:12px;padding:24px}
     .footer-bottom{flex-direction:column;gap:8px;align-items:flex-start}
 }
+/* Current medal collection */
+.award-icon[src] { width: 72px; height: 72px; object-fit: contain; margin: 0 auto 14px; }
+.medal-name { font-weight: 500; }
+.more-medals { margin-top: 32px; }
+.more-medals summary { width: fit-content; margin: auto; padding: 12px 22px; border: 1px solid var(--border); border-radius: 99px; color: var(--accent2); cursor: pointer; }
+.more-medals[open] summary { color: var(--text); }
+.medal-story { background: var(--bg2); border-block: 1px solid var(--border); }
+.medal-story-layout { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; }
+.medal-story-art { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.medal-story-art img { width: 100%; height: auto; filter: drop-shadow(0 12px 28px rgba(0,0,0,.25)); }
+.medal-story-art img:last-child { grid-column: 1 / -1; width: 55%; justify-self: center; margin-top: -24px; }
+.chime-label { display: block; margin: 28px 0 10px; color: var(--gold); font-size: .875rem; }
+#medalChime { width: 100%; max-width: 320px; }
+.availability-section { border-top: 1px solid var(--border); }
+.availability-section .btn-secondary { display: inline-block; margin-top: 24px; }
+section[id] { scroll-margin-top: 72px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
+@media (max-width: 700px) {
+    .medal-story-layout { grid-template-columns: 1fr; gap: 32px; }
+    .medal-story-art { max-width: 420px; margin: auto; }
+    .medals-grid { gap: 12px; }
+    .medal-name, .medal-desc { padding-inline: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .feature-row { opacity: 1; transform: none; }
+}
+
+.more-medals[open] summary span { display: inline-block; transform: rotate(45deg); }

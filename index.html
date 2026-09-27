@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moody — Notice. Reflect. Grow.</title>
+    <meta name="description" content="A private journal for iOS 27 that notices your small wins. Track your mood, capture your day, and discover 36 colorful medals with on-device Apple Intelligence.">
+    <meta name="theme-color" content="#0d0b14">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devices.css/dist/devices.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <noscript><style>.feature-row { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
 
@@ -21,18 +24,18 @@
         <li><a href="#medals">Medals</a></li>
         <li><a href="#privacy">Privacy</a></li>
     </ul>
-    <a href="#" class="nav-cta">Coming Soon on iOS</a>
+    <a href="#availability" class="nav-cta">Coming Soon on iOS</a>
 </nav>
 
 <section class="hero">
     <div class="stars"></div>
 
     <div class="hero-blob-col">
-        <canvas id="moodCanvas"></canvas>
+        <canvas id="moodCanvas" aria-hidden="true"></canvas>
     </div>
 
     <div class="hero-content">
-        <div class="hero-eyebrow">Available on iOS · Powered by Apple Intelligence</div>
+        <div class="hero-eyebrow">Coming to iOS 27 · Powered by Apple Intelligence</div>
         <h1 class="hero-title">
             You're doing<br>
             <em>better than</em><br>
@@ -40,7 +43,7 @@
         </h1>
         <p class="hero-sub">Moody is a personal journal that notices the small wins you walk past every day, and awards you for them. Track your mood, write freely, and discover who you're becoming.</p>
         <div class="hero-actions">
-            <a href="#" class="btn-primary">Coming Soon</a>
+            <a href="#availability" class="btn-primary">Coming Soon</a>
             <a href="#about" class="btn-secondary">Learn more ↓</a>
         </div>
     </div>
@@ -76,7 +79,7 @@
             <div class="about-text">
                 <h3>Write naturally. Discover yourself.</h3>
                 <p>Moody is a mood-aware journal designed to help you slow down, check in with how you're feeling, and capture what's on your mind without pressure or prompts.</p>
-                <p>As you write, Moody's AI quietly reads your entries and surfaces the achievements hiding in plain sight: the time you reached out to a friend, repaid a favour, or simply got yourself outside. Small things. Real things.</p>
+                <p>After you save, Moody's on-device AI reads your entry and surfaces the achievements hiding in plain sight: the time you reached out to a friend, repaid a favour, or simply got yourself outside. Small things. Real things.</p>
                 <div class="feature-pills">
                     <span class="pill">📊 Mood tracking</span>
                     <span class="pill">✍️ Free-form journaling</span>
@@ -87,7 +90,7 @@
             </div>
             <div class="about-text">
                 <h3>Awards that actually mean something</h3>
-                <p>Moody doesn't hand out badges for streaks or step counts. Every award you earn is extracted directly from your own writing</p>
+                <p>Moody doesn't hand out badges for streaks or step counts. Every award you earn is grounded in your own writing. One entry can earn several medals when it contains distinct achievements.</p>
                 <p>Whether you prioritised sleep, moved your body, connected with someone new, or simply stopped to notice something good, Moody sees it, names it, and reminds you it counts.</p>
             </div>
         </div>
@@ -128,7 +131,7 @@
             <div class="feature-text">
                 <div class="feature-label">Awards</div>
                 <h3>Wins hidden in <em>plain sight</em></h3>
-                <p>Every badge you earn is grounded in something real you wrote. Moody analyzes your entry using on-device intelligence. Your data never leaves your device.</p>
+                <p>An entry can hold more than one win. Moody looks for distinct achievements in your writing and reveals each medal in turn, using on-device Apple Intelligence.</p>
             </div>
             <div class="feature-media">
                 <div class="device-scaler">
@@ -201,39 +204,26 @@
         <div class="scroll-video-text">
             <div class="feature-label" style="color:var(--teal);">Guided Breathing</div>
             <h3 style="font-family:'Fraunces',serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;line-height:1.15;letter-spacing:-0.02em;margin-bottom:16px;">Arrive before <em style="font-style:italic;color:var(--teal);">you write</em></h3>
-            <p style="color:var(--muted);font-size:0.9375rem;line-height:1.8;max-width:420px;">A slow, animated circle guides you through a breathing cycle before your journal opens. Moody follows a box-breathing cycle, a proven technique to reset your nervous system and bring you to a state of complete relaxation. The circle expands on the inhale, pauses, contracts on the exhale, and rests.</p>
+            <p style="color:var(--muted);font-size:0.9375rem;line-height:1.8;max-width:420px;">A slow, animated circle guides you through a breathing cycle before your journal opens. Take a quiet moment with a guided box-breathing cycle. The circle expands on the inhale, pauses, contracts on the exhale, and rests.</p>
         </div>
     </div>
 </div>
 
-<div class="scroll-video-section" data-svid="moodtab" style="background:var(--bg); border-top:1px solid var(--border);">
-    <div class="scroll-video-bg" style="background:radial-gradient(ellipse at 55% 50%, rgba(240,180,41,0.06) 0%, transparent 70%);"></div>
-    <div class="scroll-video-layout sv-reverse">
-        <div class="scroll-video-text">
-            <div class="feature-label" style="color:var(--gold);">Beautifully designed medals</div>
-            <h3 style="font-family:'Fraunces',serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;line-height:1.15;letter-spacing:-0.02em;margin-bottom:16px;">Keep track of <em style="font-style:italic;color:var(--gold);">your wins</em></h3>
-            <p style="color:var(--muted);font-size:0.9375rem;line-height:1.8;max-width:420px;">As a reminder of the milestones you achieve, Moody awards you with beautifully designed 3D medals. Keep writing to discover them all!</p>
+<section class="medal-story">
+    <div class="container medal-story-layout">
+        <div>
+            <div class="section-label">Little wins, beautifully noticed</div>
+            <h2 class="section-title">One day. <em>More than one win.</em></h2>
+            <p class="section-body">Finishing something and making time for a friend can both count. Each distinct achievement gets its own medal, with a moment to enjoy it.</p>
+            <p class="section-body">Colorful metallic medals, clear details, and a softer celebratory chime. The same designs follow you from your journal to your collection.</p>
+            <label class="chime-label" for="medalChime">Listen to the medal chime</label>
+            <audio id="medalChime" aria-label="Medal celebration chime" controls preload="none" src="assets/audio/medal-chime.wav">Your browser does not support audio playback.</audio>
         </div>
-        <div class="scroll-video-phone" style="flex-direction:column;align-items:center;">
-            <div class="device-scaler">
-                <div class="device device-iphone-14-pro device-purple">
-                    <div class="device-frame">
-                        <video class="device-screen autoplay-video" muted playsinline preload="metadata" src="demos/Moody_Award.mov"></video>
-                    </div>
-                    <div class="device-stripe"></div>
-                    <div class="device-header"></div>
-                    <div class="device-sensors"></div>
-                    <div class="device-btns"></div>
-                    <div class="device-power"></div>
-                </div>
-            </div>
-            <button class="video-replay-btn" style="border-color:rgba(240,180,41,0.25);color:var(--gold);background:rgba(240,180,41,0.08);" onclick="replayVideo(this)">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
-                Replay
-            </button>
+        <div class="medal-story-art" aria-label="Finished something, connected with someone, and created something medals">
+<img class="" src="img/medals/finishedSomething.png" width="512" height="512" alt="" loading="lazy" decoding="async"><img class="" src="img/medals/connectedWithSomeone.png" width="512" height="512" alt="" loading="lazy" decoding="async"><img class="" src="img/medals/createdSomething.png" width="512" height="512" alt="" loading="lazy" decoding="async">
         </div>
     </div>
-</div>
+</section>
 
 <section class="screenshots-section" style="border-top:1px solid var(--border);">
     <div class="container">
@@ -242,7 +232,7 @@
                 <div class="device-scaler">
                     <div class="device device-iphone-14-pro device-purple">
                         <div class="device-frame">
-                            <img class="device-screen" src="demos/Moody_MoodTab.png" alt="Awards collection">
+                            <img class="device-screen" src="demos/Moody_MoodTab.png" alt="Mood trends">
                         </div>
                         <div class="device-stripe"></div>
                         <div class="device-header"></div>
@@ -264,16 +254,16 @@
 <section id="awards">
     <div class="container">
         <div class="section-label">The Awards System</div>
-        <h2 class="section-title">Numerous awards waiting to be <em>uncovered</em></h2>
+        <h2 class="section-title">36 medals waiting to be <em>uncovered</em></h2>
         <p class="section-body">Every award in Moody comes from your own words. Write honestly, and Moody will find the moments worth celebrating, even if you wouldn't have noticed them yourself.</p>
         <div class="awards-grid">
-            <div class="award-card"><span class="award-icon">🔗</span><div class="award-name">Connected with someone</div><div class="award-desc">You reached out and made a real connection today.</div></div>
-            <div class="award-card"><span class="award-icon">⭐</span><div class="award-name">Helped others</div><div class="award-desc">You gave your time or energy to support someone else.</div></div>
-            <div class="award-card"><span class="award-icon">🌙</span><div class="award-name">Prioritised sleep</div><div class="award-desc">You gave your body the rest it needed.</div></div>
-            <div class="award-card"><span class="award-icon">🏃</span><div class="award-name">Moved your body</div><div class="award-desc">You got your body moving — every bit counts.</div></div>
-            <div class="award-card"><span class="award-icon">✉️</span><div class="award-name">Reached out first</div><div class="award-desc">You took the initiative to make contact.</div></div>
-            <div class="award-card"><span class="award-icon">🎯</span><div class="award-name">Celebrated a win</div><div class="award-desc">You stopped to notice something good. That's a skill.</div></div>
-            <div class="award-card"><span class="award-icon">💛</span><div class="award-name">Made amends</div><div class="award-desc">You took responsibility and moved forward with grace.</div></div>
+            <div class="award-card"><img class="award-icon" src="img/medals/connectedWithSomeone.png" width="512" height="512" alt="" loading="lazy" decoding="async"><div class="award-name">Connected with someone</div><div class="award-desc">You reached out and made a real connection today.</div></div>
+            <div class="award-card"><img class="award-icon" src="img/medals/helpedOthers.png" width="512" height="512" alt="" loading="lazy" decoding="async"><div class="award-name">Helped others</div><div class="award-desc">You gave your time or energy to support someone else.</div></div>
+            <div class="award-card"><img class="award-icon" src="img/medals/prioritisedSleep.png" width="512" height="512" alt="" loading="lazy" decoding="async"><div class="award-name">Prioritised sleep</div><div class="award-desc">You gave your body the rest it needed.</div></div>
+            <div class="award-card"><img class="award-icon" src="img/medals/movedYourBody.png" width="512" height="512" alt="" loading="lazy" decoding="async"><div class="award-name">Moved your body</div><div class="award-desc">You got your body moving — every bit counts.</div></div>
+            <div class="award-card"><img class="award-icon" src="img/medals/reachedOutFirst.png" width="512" height="512" alt="" loading="lazy" decoding="async"><div class="award-name">Reached out first</div><div class="award-desc">You took the initiative to make contact.</div></div>
+            <div class="award-card"><img class="award-icon" src="img/medals/celebratedAWin.png" width="512" height="512" alt="" loading="lazy" decoding="async"><div class="award-name">Celebrated a win</div><div class="award-desc">You stopped to notice something good. That's a skill.</div></div>
+            <div class="award-card"><img class="award-icon" src="img/medals/madeAmends.png" width="512" height="512" alt="" loading="lazy" decoding="async"><div class="award-name">Made amends</div><div class="award-desc">You took responsibility and moved forward with grace.</div></div>
             <div class="award-card"><span class="award-icon">❔</span><div class="award-name">And more!</div><div class="award-desc">Keep writing to discover more medals!</div></div>
         </div>
     </div>
@@ -283,8 +273,9 @@
     <div class="container">
         <div class="section-label">Medals</div>
         <h2 class="section-title">Collect reminders of <em>how far you've come</em></h2>
-        <p class="section-body">Milestones shouldn't feel like digital chores. As your journey unfolds, earn beautifully crafted medals that anchor your progress in reality.</p>
-        <div class="medals-grid" id="medalsGrid"></div>
+        <p class="section-body">From quiet courage to life's funny little moments, every medal has its own character. Explore the actual designs from the app, with brighter colors and clearer details.</p>
+        <div class="medals-grid" id="medalsGrid"><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/beganSomething.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Began something</h3><p class="medal-desc">Starting is often the hardest part. You did it.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/handledDifficulty.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Handled difficulty</h3><p class="medal-desc">You faced something tough and got through it.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/practicedMindfulness.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Practiced mindfulness</h3><p class="medal-desc">You paused and paid attention to the present moment.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/prioritisedSleep.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Prioritised sleep</h3><p class="medal-desc">You gave your body the rest it needed.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/madeAmends.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Made amends</h3><p class="medal-desc">You chose repair over pride.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/connectedWithSomeone.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Connected with someone</h3><p class="medal-desc">You reached out and made a real connection today.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/askedForHelp.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Asked for help</h3><p class="medal-desc">Asking for help is its own kind of strength.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/finishedSomething.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Finished something</h3><p class="medal-desc">You saw it through to the end.</p></article></div>
+<details class="more-medals"><summary>Explore all 36 medals <span aria-hidden="true">＋</span></summary><div class="medals-grid"><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/celebratedAWin.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Celebrated a win</h3><p class="medal-desc">You stopped to notice something good. That&#x27;s a skill.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/steppedOutsideComfort.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Stepped outside comfort zone</h3><p class="medal-desc">You chose growth over safety. That takes courage.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/movedYourBody.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Moved your body</h3><p class="medal-desc">You got your body moving — every bit counts.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/createdSomething.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Created something</h3><p class="medal-desc">You made something that didn&#x27;t exist before. That matters.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/helpedOthers.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Helped others</h3><p class="medal-desc">You gave your time or energy to support someone else.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/ateWell.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Nourished yourself</h3><p class="medal-desc">You took care of your body with good food.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/reachedOutFirst.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Reached out first</h3><p class="medal-desc">You didn&#x27;t wait to be noticed. You made the first move.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/learnedSomethingNew.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Learned something new</h3><p class="medal-desc">You fed your curiosity today.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/spentTimeInNature.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Spent time in nature</h3><p class="medal-desc">You stepped outside and let the world slow you down.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/disconnectedFromScreens.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Disconnected from screens</h3><p class="medal-desc">You gave your mind a break from the noise.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/satWithUncertainty.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Sat with uncertainty</h3><p class="medal-desc">You didn&#x27;t try to fix it or force an answer. You just held it.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/restedWithoutGuilt.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Rested without guilt</h3><p class="medal-desc">Rest isn&#x27;t laziness. You chose to recover on purpose.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/keptGoing.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Kept going</h3><p class="medal-desc">You pushed through even when it was hard.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/saidNo.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Said no</h3><p class="medal-desc">No is a complete sentence. You used it.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/setABoundary.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Set a boundary</h3><p class="medal-desc">You honoured what matters to you.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/showedUpForYourself.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Showed up for yourself</h3><p class="medal-desc">You showed up, and that matters.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/criedItOut.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Let it out</h3><p class="medal-desc">Letting yourself feel it is braver than holding it in.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/sangInTheShower.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Sang in the shower</h3><p class="medal-desc">A full concert. Zero shame. Standing ovation from no one.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/forgivingYourself.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Forgave yourself</h3><p class="medal-desc">You gave yourself the grace you&#x27;d give a friend.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/blewUpMicrowave.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Blew up the microwave</h3><p class="medal-desc">You heated something for way too long. A legend.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/heroicNapper.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Heroic napper</h3><p class="medal-desc">You lay down for &#x27;just five minutes&#x27; and woke up a new person.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/doomScrolled.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Doom scrolled into the void</h3><p class="medal-desc">Two hours. You don&#x27;t want to talk about it.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/lostASock.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Lost a sock</h3><p class="medal-desc">The dryer claims another victim. Moment of silence.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/breakfastPizza.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Breakfast pizza</h3><p class="medal-desc">Cold pizza for breakfast. Nutritionally questionable. Spiritually correct.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/autocorrectDisaster.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Autocorrect disaster</h3><p class="medal-desc">You sent that. You cannot unsend that. You have been changed by this.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/rememberedADream.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Remembered a dream</h3><p class="medal-desc">It made absolutely no sense. You told someone about it anyway. They nodded politely.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/guessedTimeCorrectly.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Guessed the time correctly</h3><p class="medal-desc">No phone. No clock. Just instinct, confidence, and being inexplicably right. Eerie.</p></article><article class="medal-card"><div class="medal-img-wrap"><img class="" src="img/medals/droppedPhoneOnFace.png" width="512" height="512" alt="" loading="lazy" decoding="async"></div><h3 class="medal-name">Dropped phone on face</h3><p class="medal-desc">Lying down. Scrolling. Then: impact. You saw it coming and did nothing. A classic.</p></article></div></details>
     </div>
 </section>
 
@@ -296,11 +287,11 @@
         <div style="margin-top:48px;">
             <div class="privacy-shield">
                 <span class="shield-icon">🔒</span>
-                <p><strong>100% on-device processing.</strong> All AI analysis in Moody is performed locally on your iPhone using Apple Intelligence. Your journal entries are never sent to any server, cloud service, or third party.</p>
+                <p><strong>100% on-device processing.</strong> All AI analysis in Moody is performed locally on your iPhone using Apple Intelligence. Your journal text is not sent to an AI server for analysis.</p>
             </div>
         </div>
         <div class="privacy-cards">
-            <div class="privacy-card"><h4>Apple Intelligence, on your device</h4><p>The smart features in Moody, including achievement detection and mood analysis, are powered entirely by Apple's on-device Apple Intelligence models. No data leaves your iPhone. No external API calls are made with your content.</p></div>
+            <div class="privacy-card"><h4>Apple Intelligence, on your device</h4><p>Achievement detection runs on Apple's on-device Apple Intelligence models. Mood charts use the moods you log. Your writing is not sent to an external AI service.</p></div>
             <div class="privacy-card"><h4>No accounts, no tracking</h4><p>Moody requires no account to use. There is no sign-in, no profile, no analytics tracking your behavior. What you write is stored only in your device's local storage and optionally backed up to your personal iCloud account.</p></div>
             <div class="privacy-card"><h4>iCloud backup, your terms</h4><p>If you have iCloud Backup enabled, iOS may include Moody's local data in your personal device backup. This is governed entirely by you through iOS Settings. Moody itself never writes to any external storage independently.</p></div>
             <div class="privacy-card"><h4>No ads, no data sales</h4><p>Moody has no advertising SDK, no analytics framework, and no third-party data sharing of any kind. The app generates no revenue from your data.</p></div>
@@ -311,6 +302,14 @@
     </div>
 </section>
 
+<section id="availability" class="availability-section">
+    <div class="container">
+        <div class="section-label">Coming soon</div>
+        <h2 class="section-title">A little space <em>for your day.</em></h2>
+        <p class="section-body">Moody is being built for iPhone with iOS 27 or later. AI achievement detection requires a compatible device with Apple Intelligence enabled and its models ready. You can still save your entries when analysis is unavailable, and retry later.</p>
+        <a class="btn-secondary" href="https://github.com/moody-journal/moody">Explore the app on GitHub ↗</a>
+    </div>
+</section>
 <footer>
     <div class="footer-top">
         <div class="footer-brand">
@@ -332,7 +331,7 @@
 </footer>
 
 <script src="assets/js/mood_meter.js"></script>
-<script src="assets/js/medals.js"></script>
+
 <script src="assets/js/main.js"></script>
 </body>
 </html>
