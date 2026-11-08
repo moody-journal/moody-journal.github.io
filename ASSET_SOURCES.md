@@ -25,4 +25,10 @@ DM Sans and Fraunces from Google Fonts; self-hosted under `assets/fonts/` with t
 
 ## Product media
 
-The original Moody app icon and screenshots in `img/` and `demos/` are preserved. Resized JPEG/PNG derivatives in `assets/media/` reduce homepage transfer size without changing the artwork. Medal renders are not used: the collection stays a surprise.
+The original Moody app icon and screenshots in `img/` and `demos/` are preserved. Resized JPEG/PNG derivatives in `assets/media/` reduce homepage transfer size without changing the artwork. The user-approved medal shelf and detail screenshots are shown in the achievements gallery. Standalone medal renders and a full unlock-condition catalogue are not used.
+
+## Additional user-supplied screenshots
+
+The insights showcase now uses the Mood screen supplied by the user on November 8, 2026, captured on an iPhone Air. The original is retained as `demos/Moody_MoodInsights_October.png`; its optimized homepage derivative is `assets/media/mood-insights.jpg`. The selected hero remains unchanged. The later user-approved medal screens are used in the achievements gallery.
+
+The user subsequently requested the remaining supplied screenshots: journal export and entry analysis now appear in the main showcase; medal shelf and detail appear in the achievements showcase. This supersedes the earlier blanket restriction on showing medal artwork. The hero composition remains unchanged.

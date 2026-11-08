@@ -89,7 +89,7 @@ a > svg, summary > svg { width: 20px; height: 20px; fill: none; stroke: currentC
 .feature-navigator button > span:not(.feature-selection) { position: relative; z-index: 2; }
 .feature-selection { position: absolute; inset: 0; background: #e9dff1; border-radius: 99px; }
 .gesture-hint { margin-top: 22px; color: #a397ac; text-align: center; padding-inline: 24px; font-size: 11px; }
-.fallback-features { display: flex; justify-content: center; gap: 25px; padding: 40px; }
+.fallback-features { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; padding: 40px; }
 .fallback-features img { max-width: 250px; border-radius: 30px; }
 #feature-showcase > p { max-width: 650px; margin: auto; padding: 24px; text-align: center; }
 .mood-section { background: #19151f; overflow: clip; }
@@ -323,3 +323,23 @@ html:has(body.motion-paused) { scroll-behavior: auto; }
 .breath-caption > span:first-child { font-size: 20px; font-weight: 500; color: #e8e0f4; letter-spacing: -.02em; }
 .breath-caption > span + span { font-size: 12px; color: #ada0bb; }
 @media (max-width: 650px) { .breath-orb-canvas { max-width: 370px; } .breath-caption { margin-top: -10px; } }
+
+.feature-navigator { flex-wrap: wrap; justify-content: center; max-width: calc(100% - 40px); }
+.medal-intro { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; padding-block: 100px 35px; }
+.medal-intro p { color: #bcb099; font-size: 17px; max-width: 490px; }
+.medal-intro p + p { margin-top: 20px; }
+.medal-intro .text-link { color: #dcc39b; margin-top: 28px; }
+.wins .feature-copy p, .wins .gesture-hint { color: #bcac91; }
+.wins .carousel-ground { background: linear-gradient(transparent, #211d17); }
+.wins .feature-navigator { background: #312a21; border-color: #b99b6838; }
+.wins .feature-selection { background: #e6d4b0; }
+.wins .feature-navigator button { color: #c2b394; }
+.wins .feature-navigator button[aria-pressed=true] { color: #32281b; }
+.collection-note { text-align: center; color: #bcac91; font-size: 12px; padding: 22px 24px 65px; }
+@media (max-width: 650px) {
+  .feature-navigator { border-radius: 24px; }
+  .feature-navigator button { padding-inline: 16px; }
+  .medal-intro { grid-template-columns: 1fr; gap: 28px; padding-block: 80px 20px; }
+  .medal-intro p { font-size: 15px; }
+  .collection-note { font-size: 11px; }
+}

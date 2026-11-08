@@ -22,7 +22,7 @@ See `INTERACTIONS.md` for the A–F audit, engineering spec and validation. Poin
 
 ## Product constraints
 
-Keep launch status Coming Soon, the iOS 27 and Apple Intelligence requirements, and the ability to save/retry when analysis is unavailable. Never reveal the medal collection artwork or unlock conditions. Privacy and support share the new dark navigation, locally hosted typography, reading scale and footer. The privacy policy keeps all nine legal sections and its existing date, with a sticky desktop contents list and an inline mobile disclosure. Support provides a direct email link, copy action, and problem-reporting guidance. No invented launch date, pricing, testimonials, email signup, or App Store link.
+Keep launch status Coming Soon, the iOS 27 and Apple Intelligence requirements, and the ability to save/retry when analysis is unavailable. The user has explicitly approved featuring the supplied medal shelf and detail screenshots. Show those examples without enumerating the full collection or inventing unlock conditions. Privacy and support share the new dark navigation, locally hosted typography, reading scale and footer. The privacy policy keeps all nine legal sections and its existing date, with a sticky desktop contents list and an inline mobile disclosure. Support provides a direct email link, copy action, and problem-reporting guidance. No invented launch date, pricing, testimonials, email signup, or App Store link.
 
 ## Device artwork
 
@@ -31,3 +31,9 @@ The transparent iPhone 17 Pro Silver asset is third-party device artwork from Ho
 ## Native breathing preview
 
 `src/breath-orb.ts` translates the supplied Swift BreathOrb and BreathParticle code: 120 particles, chaos-to-circle interpolation, eight-point trails, glow, phase hues 185/200/270/240, and a 4–4–6–2 cycle. Phase labels sit below the canvas as in the app. Rendering uses a visibility-aware animation loop and a device-pixel-ratio cap. The redundant slider caption has been removed.
+
+The user subsequently requested the remaining supplied screenshots: journal export and entry analysis now appear in the main showcase; medal shelf and detail appear in the achievements showcase. This supersedes the earlier blanket restriction on showing medal artwork. The hero composition remains unchanged.
+
+## Showcase defaults
+
+The main showcase opens with Mood insights selected (second item). The achievements showcase is ordered Entry analysis, A closer look, Your shelf, with A closer look selected in the center by default. Entry analysis is present in both galleries as requested.

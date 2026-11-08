@@ -62,3 +62,8 @@ test('BreathOrb preserves 120 native particles and their initialized ranges', ()
     assert.ok(particle.chaosRadius >= 20 && particle.chaosRadius < 90);
   }
 });
+
+test('expanded galleries project within their own item counts', () => {
+  assert.equal(projectedSlide(-9999, -1000, 390, 5), 4);
+  assert.equal(projectedSlide(-9999, -1000, 390, 2), 1);
+});

@@ -35,4 +35,6 @@ npm test
 
 ## Product truth
 
-The homepage advertises the iPhone app while preserving Coming Soon status, iOS 27 support, and Apple Intelligence compatibility requirements. It describes multiple medals per entry without revealing any of the 36 medal designs or unlock conditions. The Mood Meter preview does not save data. No account, analytics, advertising, external AI request, email signup, or fake App Store button is introduced.
+The homepage advertises the iPhone app while preserving Coming Soon status, iOS 27 support, and Apple Intelligence compatibility requirements. It describes multiple medals per entry with the user-approved shelf and detail screenshots, without listing the full collection or inventing unlock conditions. The Mood Meter preview does not save data. No account, analytics, advertising, external AI request, email signup, or fake App Store button is introduced.
+
+The user subsequently requested the remaining supplied screenshots: journal export and entry analysis now appear in the main showcase; medal shelf and detail appear in the achievements showcase. This supersedes the earlier blanket restriction on showing medal artwork. The hero composition remains unchanged.

@@ -54,27 +54,38 @@ function HeroDevice() {
 const FEATURES = [
   { name: 'Journal', title: 'Keep the whole feeling.', description: 'The words. The photo. The place. The song. Save the details that make a day yours, with text, audio, images, locations, and music.', src: 'assets/media/journal.jpg', alt: 'A Moody journal entry with photos, music, location and audio', color: '#d5b9e8' },
   { name: 'Mood insights', title: 'See your days differently.', description: 'A quick check-in becomes a clearer picture. Look back at your mood trends and notice the patterns in your everyday life.', src: 'assets/media/mood-insights.jpg', alt: 'Mood check-ins and a seven-day mood trend chart in Moody', color: '#aacfc3' },
+  { name: 'Entry analysis', title: 'Your day holds more than you think.', description: 'Save your entry and let on-device Apple Intelligence look for the achievements in your words. Keep journaling while Moody finds your small wins.', src: 'assets/media/entry-analysis.jpg', alt: 'Moody analyzing a saved journal entry with a Keep journaling action' },
+  { name: 'Journal export', title: 'Your words, beyond the app.', description: 'Bring your entries together in a journal export. A keepsake of the days, feelings, and details you want to hold onto.', src: 'assets/media/journal-export.jpg', alt: 'A Moody journal export with its cover, date range and journal entries' },
   { name: 'A fresh start', title: 'Every story starts somewhere.', description: 'No pressure to write something profound. A few honest words are enough. Start with where you are, and make a little room for what comes next.', src: 'assets/media/fresh-start.jpg', alt: 'The empty Moody journal, ready for your first entry', color: '#dcc69e' },
 ];
 
-function FeaturePhone({ index, x, spacing, active }: { index: number; x: ReturnType<typeof useMotionValue<number>>; spacing: number; active: boolean }) {
+const MEDAL_FEATURES = [
+  { name: 'Entry analysis', title: 'Your day holds more than you think.', description: 'Your entry is saved. On-device Apple Intelligence looks for real achievements in your words, while you can keep journaling.', src: 'assets/media/entry-analysis.jpg', alt: 'Moody finding achievements in a saved entry, with an option to keep journaling' },
+  { name: 'A closer look', title: 'Every win has a story.', description: 'Open a medal to see what it celebrates, how many times you have earned it, and when it last showed up in your story.', src: 'assets/media/medal-detail.jpg', alt: 'Connected with someone medal showing its description, two times earned and last-earned date' },
+  { name: 'Your shelf', title: 'A collection made of real life.', description: 'See your earned medals together, revisit your top awards, and keep writing to discover what comes next.', src: 'assets/media/medal-shelf.jpg', alt: 'Moody Awards screen with a shelf of earned medals and a partially discovered collection' },
+];
+
+type ShowcaseItem = { name: string; title: string; description: string; src: string; alt: string };
+
+function FeaturePhone({ item, index, x, spacing, active }: { item: ShowcaseItem; index: number; x: ReturnType<typeof useMotionValue<number>>; spacing: number; active: boolean }) {
   const distance = useTransform(x, value => Math.min(1, Math.abs(value + index * spacing) / spacing));
   const scale = useTransform(distance, [0, 1], [1, .82]);
   const opacity = useTransform(distance, [0, 1], [1, .45]);
   const rotate = useTransform(x, value => clamp((value + index * spacing) / spacing * 8, -8, 8));
   const still = useContext(MotionContext);
   return <motion.div className="feature-phone" style={{ left: `calc(50% + ${index * spacing}px)`, scale: still ? 1 : scale, opacity, rotate: still ? 0 : rotate }} aria-hidden={!active}>
-    <Phone src={FEATURES[index].src} alt={FEATURES[index].alt} />
+    <Phone src={item.src} alt={item.alt} />
   </motion.div>;
 }
 
-function FeatureShowcase() {
+function FeatureShowcase({ items = FEATURES, id = 'features' }: { items?: ShowcaseItem[]; id?: string }) {
   const still = useContext(MotionContext);
   const viewport = useRef<HTMLDivElement>(null);
   const [spacing, setSpacing] = useState(390);
-  const [selected, setSelected] = useState(0);
-  const selectedRef = useRef(0);
-  const x = useMotionValue(0);
+  const initialIndex = Math.min(1, items.length - 1);
+  const [selected, setSelected] = useState(initialIndex);
+  const selectedRef = useRef(initialIndex);
+  const x = useMotionValue(-initialIndex * 390);
   const control = useRef<ReturnType<typeof animate> | null>(null);
   const [dragging, setDragging] = useState(false);
   const gesture = useRef<{ pointer: number; startX: number; startY: number; origin: number; lastX: number; lastTime: number; velocity: number; recognized: boolean } | null>(null);
@@ -134,7 +145,7 @@ function FeatureShowcase() {
     const instantaneous = (event.clientX - g.lastX) / dt * 1000;
     g.velocity = .65 * instantaneous + .35 * g.velocity;
     g.lastX = event.clientX; g.lastTime = now;
-    x.set(rubberBand(g.origin + dx, -2 * spacing, 0));
+    x.set(rubberBand(g.origin + dx, -(items.length - 1) * spacing, 0));
   }
   function release(event: ReactPointerEvent<HTMLDivElement>, cancelled = false) {
     const g = gesture.current;
@@ -143,28 +154,28 @@ function FeatureShowcase() {
     setDragging(false);
     if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
     const velocity = !cancelled && g.recognized && performance.now() - g.lastTime < 80 ? clamp(g.velocity, -2400, 2400) : 0;
-    const index = cancelled || !g.recognized ? selectedRef.current : projectedSlide(x.get(), velocity, spacing, FEATURES.length);
+    const index = cancelled || !g.recognized ? selectedRef.current : projectedSlide(x.get(), velocity, spacing, items.length);
     settle(index, velocity);
   }
   return <div className="feature-experience">
-    <div className="feature-copy" aria-live="polite" aria-atomic="true"><h3>{FEATURES[selected].title}</h3><p>{FEATURES[selected].description}</p></div>
-    <div className={`device-carousel ${dragging ? 'is-dragging' : ''}`} ref={viewport} tabIndex={0} role="region" aria-roledescription="carousel" aria-label="Explore app screenshots. Swipe, or use left and right arrow keys." onKeyDown={e => {
+    <div className="feature-copy" aria-live="polite" aria-atomic="true"><h3>{items[selected].title}</h3><p>{items[selected].description}</p></div>
+    <div className={`device-carousel ${dragging ? 'is-dragging' : ''}`} ref={viewport} tabIndex={0} role="region" aria-roledescription="carousel" aria-label={id === 'medals' ? 'Explore achievement screenshots. Swipe, or use left and right arrow keys.' : 'Explore app screenshots. Swipe, or use left and right arrow keys.'} onKeyDown={e => {
       let index = selected;
-      if (e.key === 'ArrowRight') index = Math.min(2, selected + 1);
+      if (e.key === 'ArrowRight') index = Math.min(items.length - 1, selected + 1);
       else if (e.key === 'ArrowLeft') index = Math.max(0, selected - 1);
       else if (e.key === 'Home') index = 0;
-      else if (e.key === 'End') index = 2;
+      else if (e.key === 'End') index = items.length - 1;
       else return;
       e.preventDefault(); settle(index);
     }} onPointerDown={down} onPointerMove={move} onPointerUp={e => release(e)} onPointerCancel={e => release(e, true)} onLostPointerCapture={e => { if (gesture.current) release(e, true); }}>
       <div className="carousel-ground" />
       <motion.div className="device-rail" style={{ x }}>
-        {FEATURES.map((feature, index) => <FeaturePhone key={feature.name} index={index} x={x} spacing={spacing} active={selected === index} />)}
+        {items.map((feature, index) => <FeaturePhone key={feature.name} item={feature} index={index} x={x} spacing={spacing} active={selected === index} />)}
       </motion.div>
     </div>
-    <div className="feature-navigator" role="group" aria-label="Choose an app feature">
-      {FEATURES.map((feature, index) => <motion.button key={feature.name} type="button" aria-pressed={selected === index} onClick={() => settle(index)} whileTap={still ? undefined : { scale: .95 }} transition={MOVE}>
-        {selected === index && <motion.span className="feature-selection" layoutId="feature-selection" transition={still ? { duration: 0 } : MOVE} />}
+    <div className="feature-navigator" role="group" aria-label={id === 'medals' ? 'Choose an achievement view' : 'Choose an app feature'}>
+      {items.map((feature, index) => <motion.button key={feature.name} type="button" aria-pressed={selected === index} onClick={() => settle(index)} whileTap={still ? undefined : { scale: .95 }} transition={MOVE}>
+        {selected === index && <motion.span className="feature-selection" layoutId={`${id}-selection`} transition={still ? { duration: 0 } : MOVE} />}
         <span>{feature.name}</span>
       </motion.button>)}
     </div>
@@ -316,13 +327,14 @@ function PortalMount() {
   return <>
     {createPortal(<HeroDevice />, document.querySelector('#hero-device')!)}
     {createPortal(<FeatureShowcase />, document.querySelector('#feature-showcase')!)}
+    {createPortal(<FeatureShowcase items={MEDAL_FEATURES} id="medals" />, document.querySelector('#medal-showcase')!)}
     {createPortal(<MoodPlayground />, document.querySelector('#mood-playground')!)}
     {createPortal(<BreathingMoment />, document.querySelector('#breathing-moment')!)}
   </>;
 }
 
 // Clear only static preview substitutes, leaving product copy in the HTML.
-['hero-device', 'feature-showcase', 'mood-playground', 'breathing-moment'].forEach(id => document.getElementById(id)?.replaceChildren());
+['hero-device', 'feature-showcase', 'medal-showcase', 'mood-playground', 'breathing-moment'].forEach(id => document.getElementById(id)?.replaceChildren());
 createRoot(document.getElementById('experience-root')!).render(<Experience />);
 
 function pressFeedback() {

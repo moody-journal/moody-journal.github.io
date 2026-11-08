@@ -33,7 +33,7 @@ Scores are engineering/design assessments, not measured Apple conformance or har
 1. On primary left-button pointer-down, stop the current rail spring and record its live x and pointer origin. Capture the pointer. Keep `touch-action: pan-y` so native vertical scrolling remains available.
 2. Wait for 10px horizontal intent. If vertical movement wins first, cancel the gallery recognizer, release capture, and restore its selected rest position. Other pointers are ignored while one owns the gesture.
 3. During a recognized horizontal drag, x follows `liveOrigin + pointerDelta` 1:1 inside the bounds. Track release velocity using pointer samples; use a weighted low-pass estimate.
-4. At release, discard velocity after an 80ms stationary hold and cap it at ±2400px/s. Project `xProjected = x + v/8`, the integral of exponential velocity decay `v(t)=v0*exp(-8t)`. Snap to `round(-xProjected/spacing)`, clamped to the three valid slides.
+4. At release, discard velocity after an 80ms stationary hold and cap it at ±2400px/s. Project `xProjected = x + v/8`, the integral of exponential velocity decay `v(t)=v0*exp(-8t)`. Snap to `round(-xProjected/spacing)`, clamped to the valid slides in the current gallery.
 5. Hand the sampled velocity into the settling spring. A new press stops it at the live x, preserving the grab offset. Selecting another feature retargets from the same presentation value and current velocity.
 6. Beyond the endpoints use `edge + sign(d)*90*(1 - 1/(abs(d)/90 + 1))`. Displacement approaches a 90px asymptote rather than a hard wall.
 7. Pointer cancel/lost capture returns to the last committed slide with zero release velocity. The dragging state always clears. Resize stops a pending gesture and aligns the selected slide to the new spacing.
@@ -108,7 +108,7 @@ Do not implement gallery translation, press/release, slider shape morphing, or t
 1. Restore seven whole-state stops or animate the native thumb toward a lagging position.
 2. Replace ReactDrops film/refraction with a generic blurred white capsule or reset optical settings to an approximate preset.
 3. Add a scrim or modal just to browse screenshots, or make page scrolling advance the gallery against the user's intent.
-4. Fabricate device shells with borders and a pill-shaped pseudo-element, reveal the medal artwork, or imply the third-party frame is official Apple artwork.
+4. Fabricate device shells with borders and a pill-shaped pseudo-element, list undisclosed medal unlock conditions, or imply the third-party frame is official Apple artwork.
 5. Reintroduce tilted hero devices, repeated entrance animations, automatic media playback, or a file-URL workflow that prevents the interactive code from loading.
 
 References: [Motion drag](https://motion.dev/docs/react-drag), [Motion animate](https://motion.dev/docs/animate), [ReactDrops registry](https://reactdrops.dev/r/soap-bubble.json), [frame artwork and measurements](https://tryhoverify.com/tools/device-frames/iphone-17-pro/). Spring principles and specified optical settings came directly from the user's brief; no HIG page numbers are asserted.
@@ -116,3 +116,5 @@ References: [Motion drag](https://motion.dev/docs/react-drag), [Motion animate](
 ## Reading-page follow-through
 
 Privacy and Support now inherit the dark identity and self-hosted fonts through `marketing.css`, with route-specific reading layouts in `reading.css`. Policy sections remain visible by default; desktop uses a sticky contents list, mobile uses an inline native disclosure with keyboard focus handoff to the selected section. The original 19 privacy paragraphs/list items and all eight support paragraphs/list items are preserved. Support includes a tested copy-email action with a selection fallback and status feedback. No new message is sent.
+
+The user subsequently requested the remaining supplied screenshots: journal export and entry analysis now appear in the main showcase; medal shelf and detail appear in the achievements showcase. This supersedes the earlier blanket restriction on showing medal artwork. The hero composition remains unchanged.
